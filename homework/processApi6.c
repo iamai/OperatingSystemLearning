@@ -13,7 +13,7 @@ int main(int argc, char* argv[]) {
         printf("I am the child %d\n", getpid());
         printf("hello\n");
 
-        fclose(STDOUT_FILENO);
+        close(STDOUT_FILENO);
 
         printf("child end\n");
     } else {
