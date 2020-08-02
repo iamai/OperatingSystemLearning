@@ -12,15 +12,13 @@ int main(int argc, char* argv[]) {
     } else if (p == 0) {
         printf("I am the child %d\n", getpid());
 
-        printf("hello");
+        int w = wait(NULL);
+        printf("hello%d\n", w);
 
         printf("child end\n");
     } else {
         printf("I am the parert of %d\n", p);
-        
-        int stat_val;
-        int w = wait(NULL);
-        printf("goodbye, %d", w);
+        printf("goodbye\n");
 
         printf("parent end\n");
     }
