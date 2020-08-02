@@ -15,7 +15,7 @@ int main(int argc, char* argv[]) {
         printf("I am the child %d\n", getpid());
 
         fscanf(fp, "%s", buff);
-        prinft("%s\n", buff);
+        printf("%s\n", buff);
         fclose(fp);
 
         printf("child end\n");
@@ -23,7 +23,7 @@ int main(int argc, char* argv[]) {
         printf("I am the parert of %d\n", p);
 
         fscanf(fp, "%s", buff);
-        prinft("%s\n", buff);
+        printf("%s\n", buff);
         fclose(fp);
 
         printf("parent end\n");
