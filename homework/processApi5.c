@@ -5,6 +5,8 @@
 
 int main(int argc, char* argv[]) {
 
+    int parentPid = getpid();
+
     int p = fork();
     if (p < 0) {
         fprintf(stderr, "some error happen");
@@ -12,7 +14,8 @@ int main(int argc, char* argv[]) {
     } else if (p == 0) {
         printf("I am the child %d\n", getpid());
 
-        int w = wait(NULL);
+        int stat_val;
+        int w = waitpid(parentPid, &stat_val, 0);
         printf("hello%d\n", w);
 
         printf("child end\n");
