@@ -19,8 +19,7 @@ int main(int argc, char* argv[]) {
         printf("I am the child %d\n", getpid());
         printf("hello\n");
 
-        pipeN[1] = STDIN_FILENO;
-
+        write(pipeN[1], "test message", sizeof(input));
 
         printf("child end\n");
     } else {
@@ -33,20 +32,15 @@ int main(int argc, char* argv[]) {
             printf("I am the child2 %d\n", getpid());
             printf("hello2\n");
 
-            pipeN[0] = STDOUT_FILENO;
+            char output[40];
+            read(pipeN[0], output, sizeof(output));
+            printf("message is : %s\n", output);
 
             printf("child2 end\n");
         } else {
             printf("I am the parert2 of %d\n", p2);
             
             wait(NULL);
-
-            char input[20] = "test message";
-            char output[20];
-            write(pipeN[1], "test file", input, sizeof(input));
-            read(pipeN[0], output, sizeof(output));
-            printf("message is : %s\n", output);
-            
 
             printf("parent2 end\n");
         }
