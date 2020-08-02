@@ -19,13 +19,13 @@ int main(int argc, char* argv[]) {
         printf("I am the child %d\n", getpid());
         printf("hello\n");
 
-        write(pipeN[1], "test message", sizeof(input));
+        char* input = "test message";
+        sleep(1000);
+        write(pipeN[1], input, sizeof(input));
 
         printf("child end\n");
     } else {
         printf("I am the parert of %d\n", p);
-
-        wait(NULL);
         
         int p2 = fork();
         if (p2 == 0) {
