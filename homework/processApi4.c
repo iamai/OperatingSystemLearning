@@ -12,7 +12,7 @@ int main(int argc, char* argv[]) {
         printf("I am the child %d\n", getpid());
 
         char *args[] = {"./test", "2" "23"};
-        execvp("./test", args);
+        execv("./test", args);
 
         printf("child end\n");
     } else {
