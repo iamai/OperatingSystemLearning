@@ -11,7 +11,7 @@ int main(int argc, char* argv[]) {
     } else if (p == 0) {
         printf("I am the child %d\n", getpid());
 
-        char *args[] = {"./test", 1, "23"};
+        char *args[] = {"./test", "2" "23"};
         execvp("./test", args);
 
         printf("child end\n");
